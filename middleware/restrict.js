@@ -1,12 +1,12 @@
 const jwt = require("jsonwebtoken")
 
-function restrict(role = "normal") {
+function restrict() {
     return async (req, res, next) => {
         const authError = {
               message: "Invalid credentials",
         }
         try {
-            const token = req.cookies.token
+            const token = req.headers.authorization
             if (!token) {
                 return res.status(401).json(authError)
             }
