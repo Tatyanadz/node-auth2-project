@@ -9,6 +9,8 @@ const usersRouter = require("./users/users-router")
 const server = express()
 const port = process.env.PORT || 4000
 
+require('dotenv').config();
+
 server.use(cors())
 server.use(helmet())
 server.use(express.json())
